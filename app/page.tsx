@@ -3,10 +3,18 @@
 import React, { useState } from 'react';
 import { Camera, Shirt, Sparkles, LayoutGrid, User, Plus, Trash2, CheckCircle2, Heart, Filter, Search } from 'lucide-react';
 
+interface Outfit {
+  title: string;
+  desc: string;
+  img: string;
+  items: number[];
+  aiVisual: string;
+}
+
 const App = () => {
   const [view, setView] = useState('wardrobe');
   const [loading, setLoading] = useState(false);
-  const [outfit, setOutfit] = useState(null);
+  const [outfit, setOutfit] = useState<Outfit | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
   // Expanded Mock Data for Variety
@@ -182,7 +190,7 @@ const App = () => {
 
                   <div className="absolute bottom-8 left-8 right-8 text-white">
                     <h3 className="text-3xl font-black mb-2 leading-tight uppercase italic">{outfit.title}</h3>
-                    <p className="text-white/80 text-sm leading-relaxed max-w-[280px]">{outfit.description}</p>
+                    <p className="text-white/80 text-sm leading-relaxed max-w-[280px]">{outfit.desc}</p>
                   </div>
                 </div>
 
@@ -195,6 +203,7 @@ const App = () => {
                     <div className="flex gap-4">
                       {outfit.items.map(itemId => {
                         const item = wardrobeItems.find(i => i.id === itemId);
+                        if (!item) return null;
                         return (
                           <div key={itemId} className="group relative">
                             <div className="w-20 h-20 rounded-[1.5rem] overflow-hidden border-2 border-white shadow-lg ring-1 ring-neutral-200 transition-transform group-hover:-translate-y-1">
