@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Closet 👔
 
-## Getting Started
+AI-powered wardrobe assistant - your personal style companion.
 
-First, run the development server:
+---
+
+## 🚀 How to Run This App (Step by Step)
+
+### Step 1: Install Node.js
+
+Download and install Node.js from: https://nodejs.org/
+
+- Choose the **LTS version** (recommended)
+- Run the installer and follow the prompts
+- Restart your computer after installation
+
+### Step 2: Open Terminal
+
+- Press `Windows + R`
+- Type `cmd` and press Enter
+- Or search for "Command Prompt" in Start menu
+
+### Step 3: Navigate to the Project Folder
+
+```bash
+cd path\to\smart-closet
+```
+
+Replace `path\to\smart-closet` with the actual folder location.
+
+For example:
+```bash
+cd C:\Users\YourName\Desktop\smart-closet
+```
+
+### Step 4: Install Dependencies
+
+Run this command (only needed once):
+
+```bash
+npm install
+```
+
+Wait for it to finish (may take 1-2 minutes).
+
+### Step 5: Start the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Step 6: Open in Browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open your web browser and go to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✅ You're Done!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The Smart Closet app should now be running. You can:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📷 View your wardrobe items
+- 🏷️ Filter by category (Tops, Bottoms, Shoes, etc.)
+- ✨ Click the sparkle button to generate AI outfit recommendations
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛑 To Stop the App
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Press `Ctrl + C` in the terminal window.
+
+---
+
+## ❓ Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `npm` not found | Restart computer after installing Node.js |
+| Page won't load | Make sure `npm run dev` is still running |
+| Images not loading | Check your internet connection |
