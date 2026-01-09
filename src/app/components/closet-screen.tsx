@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { Plus, Search, Filter, Grid3x3, User, Calendar, Sparkles, ArrowLeft } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -35,11 +36,12 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
         <div className="relative">
           <div className="h-32 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200" />
           <div className="absolute top-20 left-1/2 -translate-x-1/2">
-            <div className="size-24 rounded-full border-4 border-white bg-gradient-to-br from-pink-300 to-purple-400 overflow-hidden">
-              <img 
-                src={exampleImage} 
+            <div className="size-24 rounded-full border-4 border-white bg-gradient-to-br from-pink-300 to-purple-400 overflow-hidden relative">
+              <Image
+                src={exampleImage}
                 alt="Profile"
                 className="size-full object-cover"
+                fill
               />
             </div>
           </div>
@@ -48,7 +50,7 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
         <div className="mt-14 px-6 text-center">
           <h2 className="text-xl font-bold">{userName || "User"}</h2>
           <p className="text-gray-600">@{userName ? userName.toLowerCase().replace(/\s+/g, '') : "user"}</p>
-          
+
           <div className="flex justify-center gap-8 mt-4 mb-6">
             <div>
               <div className="font-bold">145</div>
@@ -91,8 +93,8 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
             {mockItems
               .filter(item => selectedCategory === "All" || item.category === selectedCategory)
               .map(item => (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden cursor-pointer hover:scale-105 transition-transform"
                   onClick={() => onNavigate("item-detail")}
                 >
@@ -128,9 +130,8 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
               <button
                 key={tab.id}
                 onClick={() => onNavigate(tab.id)}
-                className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${
-                  isActive ? "text-purple-600" : "text-gray-400"
-                }`}
+                className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${isActive ? "text-purple-600" : "text-gray-400"
+                  }`}
               >
                 <Icon className="size-5" />
                 <span className="text-xs">{tab.label}</span>
@@ -147,7 +148,7 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
       {/* Header */}
       <div className="px-6 pt-12 pb-4 border-b">
         <h1 className="text-2xl font-bold mb-4">My Closet</h1>
-        
+
         <div className="flex gap-2 mb-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
@@ -163,11 +164,10 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
             <Badge
               key={cat}
               variant={selectedCategory === cat ? "default" : "outline"}
-              className={`cursor-pointer ${
-                selectedCategory === cat
+              className={`cursor-pointer ${selectedCategory === cat
                   ? "bg-purple-600 text-white"
                   : ""
-              }`}
+                }`}
               onClick={() => setSelectedCategory(cat)}
             >
               {cat}
@@ -182,8 +182,8 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
           {mockItems
             .filter(item => selectedCategory === "All" || item.category === selectedCategory)
             .map(item => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden cursor-pointer"
                 onClick={() => onNavigate("item-detail")}
               />
@@ -213,9 +213,8 @@ export function ClosetScreen({ onNavigate, activeTab, userName }: ClosetScreenPr
             <button
               key={tab.id}
               onClick={() => onNavigate(tab.id)}
-              className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${
-                isActive ? "text-purple-600" : "text-gray-400"
-              }`}
+              className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${isActive ? "text-purple-600" : "text-gray-400"
+                }`}
             >
               <Icon className="size-5" />
               <span className="text-xs">{tab.label}</span>

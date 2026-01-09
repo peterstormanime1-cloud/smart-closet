@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { Camera, Upload, ArrowLeft, Check } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -57,12 +58,13 @@ export function AddItemScreen({ onNavigate }: AddItemScreenProps) {
       <div className="size-full bg-black flex flex-col">
         {/* Camera View */}
         <div className="relative flex-1">
-          <img 
-            src={recognitionImage} 
+          <Image
+            src={recognitionImage}
             alt="Camera view"
             className="size-full object-cover"
+            fill
           />
-          
+
           {/* Top Bar */}
           <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
             <button
@@ -92,14 +94,14 @@ export function AddItemScreen({ onNavigate }: AddItemScreenProps) {
           <button className="size-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
             <Upload className="size-6 text-white" />
           </button>
-          
+
           <button
             onClick={() => setStep("tagging")}
             className="size-20 rounded-full bg-white flex items-center justify-center shadow-lg"
           >
             <div className="size-16 rounded-full bg-white border-4 border-gray-800" />
           </button>
-          
+
           <div className="size-16" />
         </div>
       </div>
@@ -151,11 +153,10 @@ export function AddItemScreen({ onNavigate }: AddItemScreenProps) {
               <Badge
                 key={color}
                 variant={selectedColors.includes(color) ? "default" : "outline"}
-                className={`cursor-pointer ${
-                  selectedColors.includes(color)
+                className={`cursor-pointer ${selectedColors.includes(color)
                     ? "bg-purple-600 text-white"
                     : ""
-                }`}
+                  }`}
                 onClick={() => toggleColor(color)}
               >
                 {color}
@@ -189,11 +190,10 @@ export function AddItemScreen({ onNavigate }: AddItemScreenProps) {
               <Badge
                 key={occasion}
                 variant={selectedOccasions.includes(occasion) ? "default" : "outline"}
-                className={`cursor-pointer ${
-                  selectedOccasions.includes(occasion)
+                className={`cursor-pointer ${selectedOccasions.includes(occasion)
                     ? "bg-purple-600 text-white"
                     : ""
-                }`}
+                  }`}
                 onClick={() => toggleOccasion(occasion)}
               >
                 {occasion}

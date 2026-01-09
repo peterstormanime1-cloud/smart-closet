@@ -1,4 +1,5 @@
 import { Settings, ChevronRight, User, Grid3x3, Calendar, Sparkles, Heart, Share2, Bell } from "lucide-react";
+import Image from "next/image";
 import { Button } from "./ui/button";
 import exampleImage from "figma:asset/7d5148c5e347efff5a7b2b59116d92ea10d7c91d.png";
 
@@ -34,11 +35,12 @@ export function ProfileScreen({ onNavigate, activeTab, userName }: ProfileScreen
       <div className="px-6 -mt-12 mb-6">
         <div className="bg-white rounded-3xl p-6 shadow-lg">
           <div className="flex items-center gap-4 mb-6">
-            <div className="size-20 rounded-full bg-gradient-to-br from-pink-300 to-purple-400 overflow-hidden flex-shrink-0">
-              <img 
+            <div className="size-20 rounded-full bg-gradient-to-br from-pink-300 to-purple-400 overflow-hidden flex-shrink-0 relative">
+              <Image
                 src={exampleImage}
                 alt="Profile"
                 className="size-full object-cover"
+                fill
               />
             </div>
             <div className="flex-1">
@@ -119,9 +121,8 @@ export function ProfileScreen({ onNavigate, activeTab, userName }: ProfileScreen
             <button
               key={tab.id}
               onClick={() => onNavigate(tab.id)}
-              className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${
-                isActive ? "text-purple-600" : "text-gray-400"
-              }`}
+              className={`flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-colors ${isActive ? "text-purple-600" : "text-gray-400"
+                }`}
             >
               <Icon className="size-5" />
               <span className="text-xs">{tab.label}</span>
